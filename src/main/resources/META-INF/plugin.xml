@@ -1,0 +1,28 @@
+<idea-plugin>
+    <id>com.yyh.filter</id>
+    <name>project window filter</name>
+    <vendor email="dbtlek@gmail.com" url="https://github.com/yu-young-hoon/java-intellij-plugin-filter.git">dbtlek</vendor>
+
+    <description>
+        <![CDATA[
+            This is filter and release filter action for project window.
+            Makes items invisible in the tree.
+        ]]>
+    </description>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <treeStructureProvider implementation="com.yyh.provider.TextOnlyTreeStructureProvider"/>
+    </extensions>
+
+    <actions>
+
+        <action id="ReleaseFilterBoxAction" class="com.yyh.action.ReleaseFilterMenuAction" text="Release Filter">
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="first"/>
+        </action>
+
+        <action id="FilterBoxAction" class="com.yyh.action.FilterPopupMenuAction" text="Filter File">
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="first"/>
+        </action>
+
+    </actions>
+</idea-plugin>
