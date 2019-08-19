@@ -1,9 +1,6 @@
 package com.yyh.util;
 
-import com.intellij.ide.projectView.impl.nodes.PsiFileNode;
 import com.intellij.ide.util.treeView.AbstractTreeNode;
-import com.intellij.openapi.fileTypes.PlainTextFileType;
-import com.intellij.openapi.vfs.VirtualFile;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -12,30 +9,29 @@ import java.util.Set;
 public class FindNodeByFilter {
 
     public static String FILTER_TEXT = "";
-    public static Set<String> filterPassNode;
+    public static Set<Object> FILTER_PASS_NODE;
 
     public static void find(AbstractTreeNode root) {
 
-        filterPassNode = new HashSet<>();
-        recursiveFind(root, filterPassNode);
+        if (FILTER_PASS_NODE == null) {
+            FILTER_PASS_NODE = new HashSet<>();
+
+        }
+
+        recursiveFind(root, FILTER_PASS_NODE);
 
     }
 
-    private static void recursiveFind(AbstractTreeNode parentNode, Set<String> filterPassNode) {
+    private static void recursiveFind(AbstractTreeNode parentNode, Set<Object> filterPassNode) {
 
         Collection<AbstractTreeNode> childNodes = parentNode.getChildren();
         for (AbstractTreeNode childNode : childNodes) {
-            if (childNode instanceof PsiFileNode) {
-                VirtualFile vf  = ((PsiFileNode) childNode).getVirtualFile();
-                if (vf != null && !vf.isDirectory() && !(vf.getFileType() instanceof PlainTextFileType)) {
-                    continue;
-                }
+            childNode.setParent(parentNode);
 
-                final String fileName = vf.getName();
-                if (fileName.contains(FILTER_TEXT)) {
-                    findUp(vf, filterPassNode);
+            final String fileName = childNode.getValue().toString();
+            if (fileName.contains(FILTER_TEXT)) {
+                findUp(childNode, filterPassNode);
 
-                }
             }
 
             if (!childNode.getChildren().isEmpty()) {
@@ -47,10 +43,12 @@ public class FindNodeByFilter {
 
     }
 
-    private static void findUp(VirtualFile children, Set<String> filterPassNode) {
+    private static void findUp(AbstractTreeNode children, Set<Object> filterPassNode) {
 
-        filterPassNode.add(children.getPath());
+        if (filterPassNode.contains(children.getValue()))
+            return;
 
+        filterPassNode.add(children.getValue());
         if (children.getParent() != null) {
             findUp(children.getParent(), filterPassNode);
 

@@ -1,7 +1,7 @@
 package com.yyh.dialog;
 
 import com.intellij.openapi.ui.DialogWrapper;
-import com.yyh.action.FilterPopupMenuAction;
+import com.intellij.ui.components.JBTextArea;
 import com.yyh.util.FindNodeByFilter;
 
 import javax.annotation.Nullable;
@@ -10,13 +10,12 @@ import java.awt.*;
 
 public class FilterPopupDialog extends DialogWrapper {
 
-    private JTextArea filterArea;
+    private JBTextArea filterArea;
 
     public FilterPopupDialog() {
 
         super(true); // use current window as parent
         init();
-        setTitle("Filter Popup");
 
     }
 
@@ -26,11 +25,7 @@ public class FilterPopupDialog extends DialogWrapper {
 
         JPanel dialogPanel = new JPanel(new BorderLayout());
 
-        JLabel label = new JLabel("필터를 입력해주세요.");
-        label.setPreferredSize(new Dimension(100, 100));
-        dialogPanel.add(label, BorderLayout.CENTER);
-
-        this.filterArea = new JTextArea();
+        this.filterArea = new JBTextArea();
         filterArea.setText(FindNodeByFilter.FILTER_TEXT);
         dialogPanel.add(filterArea);
 
