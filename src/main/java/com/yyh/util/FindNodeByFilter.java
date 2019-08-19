@@ -28,10 +28,12 @@ public class FindNodeByFilter {
         for (AbstractTreeNode childNode : childNodes) {
             childNode.setParent(parentNode);
 
-            final String fileName = childNode.getValue().toString();
-            if (fileName.contains(FILTER_TEXT)) {
-                findUp(childNode, filterPassNode);
+            if (!filterPassNode.contains(childNode.getValue())) {
+                final String fileName = childNode.getValue().toString();
+                if (fileName.contains(FILTER_TEXT)) {
+                    findUp(childNode, filterPassNode);
 
+                }
             }
 
             if (!childNode.getChildren().isEmpty()) {
@@ -44,9 +46,6 @@ public class FindNodeByFilter {
     }
 
     private static void findUp(AbstractTreeNode children, Set<Object> filterPassNode) {
-
-        if (filterPassNode.contains(children.getValue()))
-            return;
 
         filterPassNode.add(children.getValue());
         if (children.getParent() != null) {
