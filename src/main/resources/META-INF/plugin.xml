@@ -2,7 +2,7 @@
     <id>com.yyh.filter</id>
     <name>project window filter</name>
     <vendor email="dbtlek@gmail.com" url="https://github.com/yu-young-hoon/java-intellij-plugin-filter.git">dbtlek</vendor>
-
+    <idea-version since-build="181"/>
     <description>
         <![CDATA[
             This is filter and release filter action for project window.
