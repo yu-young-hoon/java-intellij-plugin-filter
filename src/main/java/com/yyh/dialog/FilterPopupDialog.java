@@ -1,7 +1,6 @@
 package com.yyh.dialog;
 
 import com.intellij.openapi.ui.DialogWrapper;
-import com.intellij.ui.components.JBTextArea;
 import com.yyh.util.FindNodeByFilter;
 
 import javax.annotation.Nullable;
@@ -10,7 +9,7 @@ import java.awt.*;
 
 public class FilterPopupDialog extends DialogWrapper {
 
-    private JBTextArea filterArea;
+    private JTextArea filterArea;
 
     public FilterPopupDialog() {
 
@@ -25,7 +24,7 @@ public class FilterPopupDialog extends DialogWrapper {
 
         JPanel dialogPanel = new JPanel(new BorderLayout());
 
-        this.filterArea = new JBTextArea();
+        this.filterArea = new JTextArea();
         filterArea.setText(FindNodeByFilter.FILTER_TEXT);
         dialogPanel.add(filterArea);
 
