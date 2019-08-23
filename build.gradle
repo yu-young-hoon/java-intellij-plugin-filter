@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'com.yyh'
-version '0.0.3'
+version '0.0.5'
 
 sourceCompatibility = 1.8
 
@@ -19,10 +19,4 @@ dependencies {
 intellij {
     version '2018.3.6'
     intellij.updateSinceUntilBuild false
-}
-
-patchPluginXml {
-    changeNotes """
-    -Modified Text area class
-    """
 }

@@ -13,7 +13,7 @@ public class FilterPopupDialog extends DialogWrapper {
 
     public FilterPopupDialog() {
 
-        super(true); // use current window as parent
+        super(true);
         init();
 
     }
@@ -23,8 +23,8 @@ public class FilterPopupDialog extends DialogWrapper {
     protected JComponent createCenterPanel() {
 
         JPanel dialogPanel = new JPanel(new BorderLayout());
+        filterArea = new JTextArea();
 
-        this.filterArea = new JTextArea();
         filterArea.setText(FindNodeByFilter.FILTER_TEXT);
         dialogPanel.add(filterArea);
 
@@ -33,6 +33,7 @@ public class FilterPopupDialog extends DialogWrapper {
     }
 
     public String getText() {
+
         return this.filterArea.getText();
 
     }

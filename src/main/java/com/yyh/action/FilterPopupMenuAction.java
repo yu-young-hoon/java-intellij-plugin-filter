@@ -7,6 +7,8 @@ import com.yyh.dialog.FilterPopupDialog;
 import com.yyh.util.FindNodeByFilter;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Objects;
+
 public class FilterPopupMenuAction extends AnAction {
 
     @Override
@@ -17,7 +19,7 @@ public class FilterPopupMenuAction extends AnAction {
             FindNodeByFilter.FILTER_TEXT = filterPopupDialog.getText();
             FindNodeByFilter.FILTER_PASS_NODE = null;
 
-            ProjectView.getInstance(event.getProject()).refresh();
+            ProjectView.getInstance(Objects.requireNonNull(event.getProject())).refresh();
 
         }
     }

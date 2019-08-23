@@ -5,21 +5,21 @@
 ---
 
 ![tool-intellij-plugin01](https://simuruk-wiki.s3.ap-northeast-2.amazonaws.com/tool-intellij-plugin01.png)
-Right-click in project window
+* Right-click in project window
 
 ---
 
 ![tool-intellij-plugin02](https://simuruk-wiki.s3.ap-northeast-2.amazonaws.com/tool-intellij-plugin02.png)
-Enter the text
+* Enter the text
 
 ---
 
 ![tool-intellij-plugin03](https://simuruk-wiki.s3.ap-northeast-2.amazonaws.com/tool-intellij-plugin03.png)
-Before filtering
+* Before filtering
 
 ---
 
 ![tool-intellij-plugin04](https://simuruk-wiki.s3.ap-northeast-2.amazonaws.com/tool-intellij-plugin04.png)
-Filtered result
+* Filtered result
 
 ---
